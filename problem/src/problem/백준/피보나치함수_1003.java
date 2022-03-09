@@ -10,16 +10,15 @@ public class 피보나치함수_1003 {
 	public static int cnt1 = 0;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int T = Integer.parseInt(st.nextToken());
+		int T = Integer.parseInt(br.readLine());
 		int[][] ans = new int [T][2];
 		for(int tc = 0; tc < T; tc++) {
 			cnt0 = 0;
 			cnt1 = 0;
-			int N = Integer.parseInt(st.nextToken());
+			int N = Integer.parseInt(br.readLine());
 			fibo(N);
-			ans[T][0] = cnt0;
-			ans[T][1] = cnt1;
+			ans[tc][0] = cnt0;
+			ans[tc][1] = cnt1;
 		}
 		for(int tc = 0; tc < T; tc++) {
 			for(int i =0; i<2; i++) {
