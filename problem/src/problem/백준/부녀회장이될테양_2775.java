@@ -7,8 +7,8 @@ public class 부녀회장이될테양_2775 {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
 		for(int tc =0; tc<T; tc++) {
-			int k = sc.nextInt();
-			int n = sc.nextInt();
+			int k = sc.nextInt(); //층 수
+			int n = sc.nextInt(); //호 수
 			int sum = 0;
 			int[][] home = new int[k+1][n+1];
 			//0층 집어넣기
