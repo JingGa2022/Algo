@@ -18,6 +18,7 @@ public class 스택수열_1874 {
 		//수열 찾기
 		int idx =0;
 		int seq = 2;
+		int check = 0; //pop의 개수 세기 숫자수만큼 pop이 되어야 되겠죵?
 		stack.push(1);
 		list.add('+');
 		for(int i = 1; i < N*2; i++) {
@@ -28,8 +29,12 @@ public class 스택수열_1874 {
 			}
 			if(stack.peek() == num[idx]) {
 				stack.pop();
-				idx++;
+				if(idx < N-1) {
+					idx++;
+					
+				}else if(idx >= N) idx = N-1;
 				list.add('-');
+				check++;
 			}else if(stack.peek() != num[idx]) {
 				stack.push(seq);
 				seq++;
@@ -37,7 +42,7 @@ public class 스택수열_1874 {
 			}
 		}
 		for(int i = 0; i < list.size(); i++) {
-			if(stack.size()==0)
+			if(check==N)
 			System.out.println(list.get(i));
 			else {
 				System.out.println("NO");
