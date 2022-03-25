@@ -19,27 +19,22 @@ public class 나무자르기_2805 {
 			if(wood[i] > high) high = wood[i];
 		}
 		int sum =0;//통나무의 합을 구하기
-		int cut = high - M;//톱의 높이
-		int cnt = M;//자르는횟수 저장
+		int cut = 0;//톱의 높이
 		//절반씩 잘라가며 값을 찾기
-		while(true) {
+		while(high > cut) {
 			sum = 0;
 			for(int i =0; i<N; i++) {
 				if(wood[i] - cut > 0){
 				sum += wood[i] - cut;
 				}
 			}
-			
-			if(sum == M) break;
 			//나무 자른 합이 크다면 자른 높이cut에 더해주고 작다면 뺴주고
-			else if(sum < M) {
-				cnt = cnt/2;
-				cut -= cnt;
-			}else if(sum > M) {
-				cnt = cnt/2;
-				cut += cnt;
+			if(sum > M) {
+				cut += (high - cut)/2;
+			}else if(sum < M) {
+				high -= (high - cut)/2;
 			}
-			
+			if(sum==M) cut += 1;
 		}
 		System.out.println(cut);
 	}//main
