@@ -19,12 +19,7 @@ public class 나무자르기_2805 {
 			if(wood[i] > high) high = wood[i];
 		}
 		int sum =0;//통나무의 합을 구하기
-<<<<<<< HEAD
 		int cut = 0;//톱의 높이
-=======
-		int cut = high - M;//톱의 높이
-		int cnt = M;//자르는길 저장
->>>>>>> e07e22f8176a5f1484366d34a60383b5513abda1
 		//절반씩 잘라가며 값을 찾기
 		while(high > cut) {
 			sum = 0;
@@ -39,13 +34,10 @@ public class 나무자르기_2805 {
 			}else if(sum < M) {
 				high -= (high - cut)/2;
 			}
-<<<<<<< HEAD
 			if(sum==M) cut += 1;
-=======
 			
 			//중간값 +1 해서 값을 넣어주고  while문의 설정은 high>min일때만 돌도록
 			
->>>>>>> e07e22f8176a5f1484366d34a60383b5513abda1
 		}
 		System.out.println(cut);
 	}//main
