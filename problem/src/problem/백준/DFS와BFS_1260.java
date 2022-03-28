@@ -24,7 +24,7 @@ public class DFS와BFS_1260 {
 		//시작번호
 		int startNode = Integer.parseInt(st.nextToken());
 		//공간 만들기
-		space = new int[M+1][M+1];
+		space = new int[N+1][N+1];
 		isVisited = new boolean[N+1];
 		for(int i = 0; i<N; i++) {
 				st = new StringTokenizer(br.readLine()); 
