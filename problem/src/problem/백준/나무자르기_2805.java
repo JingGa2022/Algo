@@ -10,7 +10,7 @@ public class 나무자르기_2805 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());//원하는 나무길이
 		int[] wood = new int[N];
 		int high = 0;//가장 높은 나무
 		st = new StringTokenizer(br.readLine());
@@ -18,27 +18,29 @@ public class 나무자르기_2805 {
 			wood[i] = Integer.parseInt(st.nextToken());
 			if(wood[i] > high) high = wood[i];
 		}
-		int sum =0;//통나무의 합을 구하기
 		int cut = 0;//톱의 높이
 		//절반씩 잘라가며 값을 찾기
 		while(high > cut) {
-			sum = 0;
+			int mid = (high + cut)/2;
+			int sum =0;//통나무의 합을 구하기
 			for(int i =0; i<N; i++) {
-				if(wood[i] - cut > 0){
-				sum += wood[i] - cut;
+				if(wood[i] - mid > 0){
+				sum += (wood[i] - mid);
+				
 				}
 			}
-			//나무 자른 합이 크다면 자른 높이cut에 더해주고 작다면 뺴주고
-			if(sum > M) {
-				cut += (high - cut)/2;
-			}else if(sum < M) {
-				high -= (high - cut)/2;
+			//나무 자른 합이 크다면 cut에 올려주고 작다면 high 내려주고
+			if(sum < M) {
+				high = mid;
+				
+			}else {
+				cut = mid +1 ;
+			
+				
 			}
-			if(sum==M) cut += 1;
-			
 			//중간값 +1 해서 값을 넣어주고  while문의 설정은 high>min일때만 돌도록
-			
+	
 		}
-		System.out.println(cut);
+		System.out.println(cut-1);
 	}//main
 }
