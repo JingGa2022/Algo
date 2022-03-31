@@ -14,7 +14,6 @@ public class 공통조상_1248 {
 			int E = sc.nextInt();//간선의 수
 			int sv1 = sc.nextInt();//정점번호1
 			int sv2 = sc.nextInt();//정점번호2
-			ansCnt;//
 			int ansP;
 			tree = new int[V+1][3];//트리 생성
 			for(int i =1; i<=V; i++) {
@@ -23,9 +22,7 @@ public class 공통조상_1248 {
 				//왼자 확인후 비었다면 넣고 없으면 오자로 넣기
 				if(tree[p][0] == 0) tree[p][0]=c;
 				else tree[p][1] = c;
-				tree[c][2] = p;//부모의 정보 저장
-				
-				
+				tree[c][2] = p;//부모의 정보 저장			
 			}
 			int prev;
 			int node = tree[sv1][2];
