@@ -34,4 +34,3 @@ public class 사칙연산_1232 {
 			return Double.parseDouble(tree[idx][1]);
 	}
 }
-;
