@@ -20,8 +20,10 @@ public class 체스판다시칠하기_1018 {
 		M = sc.nextInt(); // 열
 		box = new String[N + 2][M + 2];
 		check = new String[N + 2][M + 2];
+		
 		sc.nextLine();
 		String[] tmp;
+		
 		for (int i = 1; i <= N; i++) {
 			tmp = sc.nextLine().split("");
 			for (int j = 1; j <= M; j++) {
@@ -36,7 +38,7 @@ public class 체스판다시칠하기_1018 {
 				ans=0;
 				change(i, j);//8*8씩 잘라서 확인해 보기
 				recovery();//배열원복
-				System.out.println(ans);
+//				System.out.println(ans);
 				if(ans<min) min = ans;
 			}
 		}
@@ -46,6 +48,7 @@ public class 체스판다시칠하기_1018 {
 	public static void change(int I, int J) {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
+				
 				for (int a = 0; a < 4; a++) {
 					// 자식들을 큐에 집어넣기
 					if (box[I+i + dr[a]][J+j + dc[a]] != null && I+i <= N-1 && J+j<= M-1) {
