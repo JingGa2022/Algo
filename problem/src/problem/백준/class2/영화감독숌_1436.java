@@ -1,4 +1,4 @@
-package problem.백준;
+package problem.백준.class2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
