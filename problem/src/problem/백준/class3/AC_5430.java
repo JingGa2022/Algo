@@ -1,4 +1,4 @@
-package problem.백준;
+package problem.백준.class3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,9 +15,13 @@ public class AC_5430 {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
 		for(int tc =1; tc<=T; tc++) {
+			
 			String order = sc.next();//명령
+			
 			int n = sc.nextInt();//배열의 사이즈
+			
 			String s = sc.next();//배열 입력
+			
 			String[] tmp = s.substring(1, s.length() -1).split(",");
 			
 			//배열 처리
@@ -31,6 +35,7 @@ public class AC_5430 {
 				System.out.println(ans);
 		}//for
 	}//main
+	
 	static void solve(String order) {
 		for(int i =0; i < order.length(); i++) {
 			if(order.charAt(i) == 'R') {
@@ -40,16 +45,19 @@ public class AC_5430 {
 			}
 		}
 	}//solve
+	
 	private static String delete() {
 		int n = box.size()-1;//삭제했을 경우의 길이
 		if(n<0) { 
 			ans = "error";
-			return ans;}
+			return ans;
+			}
 		else {
 			box.remove(0);
 		}
 		return "";
 	}
+	
 	private static void reverse() {
 		int[] tmp = new int[box.size()];
 		for(int i = box.size()-1, j=0 ; i >= 0; i--, j++) {
