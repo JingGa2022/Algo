@@ -11,7 +11,6 @@ public class 보호필름_2112 {
 	static int D, W, K;
 	static int[][] pf;
 	static int[][] origin;
-	static boolean check;
 	static boolean[] sel;
 	static int ans;
 
@@ -49,15 +48,14 @@ public class 보호필름_2112 {
 	}// main
 
 	private static void dispenser(int a) {
-		test();
-		if (a == D || check) {
+		if (a == D || test()) {
 			
 			shot(0);
 			
 			return;
 		}
 
-		if (!check) {
+		if (!test()) {
 			sel[a] = false;// 비었을때
 			dispenser(a + 1);
 			sel[a] = true; // 0주사
@@ -74,7 +72,7 @@ public class 보호필름_2112 {
 			}
 			test();
 						
-			if (check) {
+			if (test()) {
 				if (tmp < ans)
 					ans = tmp;
 			}
@@ -102,8 +100,7 @@ public class 보호필름_2112 {
 		}
 	}
 
-	private static void test() {
-		check = true;
+	private static boolean test() {
 		for (int i = 0; i < W; i++) {
 			boolean flag = false;
 			int cnt = 1;
@@ -118,7 +115,8 @@ public class 보호필름_2112 {
 				}
 			}
 			if (!flag)
-				check = false;// 합격기준보다 연속성이 작으면 테스트 실패
+				return false;// 합격기준보다 연속성이 작으면 테스트 실패
 		}
+		return true;
 	}// test
 }// class
