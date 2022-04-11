@@ -1,5 +1,6 @@
 package problem.APS심화;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -17,6 +18,8 @@ public class 특이한자석_모의SW테스트 {
 		int T = sc.nextInt();
 		
 		for(int tc = 1; tc<=T; tc++) {
+			
+			K = sc.nextInt();
 			
 			mag1 = new LinkedList<>();
 			mag2 = new LinkedList<>();
@@ -44,18 +47,20 @@ public class 특이한자석_모의SW테스트 {
 			}
 			
 			for(int i =0; i<K; i++) {
-				rotate(dir[i][0], dir[i][1]);
+				isStick();//붙었나 확인
+				rotate(dir[i][0], dir[i][1], 0);
 			}
 			score();
 			
-			System.out.println(ans);
+			System.out.println("#"+tc+" "+ans);
 		}//tc
 	}// main
-	//th는 몇번째인지 d는 방향 s는 붙어있는지 여부
-	static void rotate(int th, int d) {
+	//th는 몇번째인지 d는 방향 from은 어디서왔는지 여부
+	static void rotate(int th, int d , int from) {
 		int tmp=0;
 		switch (th) {
 		case 1:
+			//기본 도는 부분
 			if(d == 1) { //시계방향으로 움직이는 것은 맨마지막 것을 0번인덱스로 옮김과 같다
 			mag1.addFirst(mag1.getLast());
 			mag1.removeLast();
@@ -63,11 +68,12 @@ public class 특이한자석_모의SW테스트 {
 				mag1.addLast(mag1.getFirst());
 				mag1.removeFirst();
 			}
-			isStick();//붙었나 확인
-			if(stick[0] == true) rotate(2,-d);
+			//만약 붙었을때 영향을 주는 경우
+			if(stick[0] == true && from == 0) rotate(2,-d, 1);
 			break;
 
 		case 2:
+			//기본 도는 부분
 			if(d == 1) { //시계방향으로 움직이는 것은 맨마지막 것을 0번인덱스로 옮김과 같다
 				mag2.addFirst(mag2.getLast());
 				mag2.removeLast();
@@ -75,12 +81,19 @@ public class 특이한자석_모의SW테스트 {
 				mag2.addLast(mag2.getFirst());
 				mag2.removeFirst();
 			}
-			isStick();//붙었나 확인
-			if(stick[1] == true) rotate(3,-d);
-			if(stick[0] == true) rotate(1,-d);
+			
+			//만약 붙었을때 영향을 주는 경우
+			if(stick[1] == true &&stick[0] == true&& from == 0 ) {
+				rotate(1,-d, 2);
+				rotate(3,-d, 2);
+			} else if(stick[1] == true && from == 0) rotate(3,-d,2);
+			else if(stick[0] == true && from == 0) rotate(1,-d,2);
+			if(stick[1] == true && from == 1) rotate(3,-d,2);
+			if(stick[0] == true && from == 3) rotate(1,-d,2);
 			break;
 			
 		case 3:
+			//기본 도는 부분
 			if(d == 1) { //시계방향으로 움직이는 것은 맨마지막 것을 0번인덱스로 옮김과 같다
 				mag3.addFirst(mag3.getLast());
 				mag3.removeLast();
@@ -88,12 +101,20 @@ public class 특이한자석_모의SW테스트 {
 				mag3.addLast(mag3.getFirst());
 				mag3.removeFirst();
 			}
-			isStick();//붙었나 확인
-			if(stick[1] == true) rotate(2,-d);
-			if(stick[2] == true) rotate(4,-d);
+			
+			//만약 붙었을때 영향을 주는 경우
+			if(stick[1] == true &&stick[2] == true&& from == 0 ) {
+				rotate(2,-d, 3);
+				rotate(4,-d, 3);
+			}
+			else if(stick[1] == true && from == 0) rotate(2,-d,3);
+			else if(stick[2] == true && from == 0) rotate(4,-d,3);
+			if(stick[2] == true && from == 2) rotate(4,-d,3);
+			if(stick[1] == true && from == 4) rotate(2,-d,3);
 			break;
 		
 		case 4:
+			//기본 도는 부분
 			if(d == 1) { //시계방향으로 움직이는 것은 맨마지막 것을 0번인덱스로 옮김과 같다
 				mag4.addFirst(mag4.getLast());
 				mag4.removeLast();
@@ -101,8 +122,9 @@ public class 특이한자석_모의SW테스트 {
 				mag4.addLast(mag4.getFirst());
 				mag4.removeFirst();
 			}
-			isStick();//붙었나 확인
-			if(stick[2] == true) rotate(3,-d);
+			
+			//만약 붙었을때 영향을 주는 경우
+			if(stick[2] == true && from == 0) rotate(3,-d,4);
 			break;
 		}
 	}
@@ -110,13 +132,16 @@ public class 특이한자석_모의SW테스트 {
 	static void isStick() {
 		if(mag1.get(2) != mag2.get(6)) {
 			stick[0] = true; //붙어있음
-		}
+		}else 
+			stick[0] = false; //떨어져있음
 		if(mag2.get(2) != mag3.get(6)) {
 			stick[1] = true; //붙어있음
-		}
+		}else 
+			stick[1] = false; //떨어져있음
 		if(mag3.get(2) != mag4.get(6)) {
 			stick[2] = true; //붙어있음
-		}
+		}else 
+			stick[2] = false; //떨어져있음
 			
 		return;
 	}
@@ -124,7 +149,6 @@ public class 특이한자석_모의SW테스트 {
 	static void score() {
 		ans = 0;
 		ans += mag1.get(0)+mag2.get(0)*2+mag3.get(0)*4+mag4.get(0)*8;
-		System.out.println(mag1.get(0)+" "+mag2.get(0)*2+" "+mag3.get(0)*4+" "+mag4.get(0)*8);
-		System.out.println("---------------");
+		
 	}
 }//class
