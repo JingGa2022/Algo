@@ -12,7 +12,7 @@ public class 사칙연산_1232 {
 			int N = sc.nextInt();
 			
 			tree = new String[N+1][];
-			sc.nextLine();//캐리지리턴버리기
+			sc.nextLine();//캐리지리턴버리기  입력을 비워주는 것
 			for(int i =1; i<=N; i++) {
 				tree[i] = sc.nextLine().split(" ");
 			}//입력처리
@@ -34,4 +34,3 @@ public class 사칙연산_1232 {
 			return Double.parseDouble(tree[idx][1]);
 	}
 }
-;

@@ -31,14 +31,14 @@ public class 최대힙_11279 {
 				}
 			} // 삭제
 			else if (order == 0) {
-						if(idx <= 0) {
-				sb.append("0").append("\n");
-				idx = 0;
-			}else {
-				sb.append(heap[1]).append("\n");
-				heap[1] = heap[idx];
-				heap[idx--] = 0;
-			}
+				if (idx <= 0) {
+					sb.append("0").append("\n");
+					idx = 0;
+				} else {
+					sb.append(heap[1]).append("\n");
+					heap[1] = heap[idx];
+					heap[idx--] = 0;
+				}
 			}
 			int hidx = 1;
 			while (hidx * 2 <= idx) {
@@ -60,7 +60,7 @@ public class 최대힙_11279 {
 					break;
 
 			}
-		}//for
+		} // for
 		System.out.println(sb);
 	}// main
 }
