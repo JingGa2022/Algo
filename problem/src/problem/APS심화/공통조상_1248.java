@@ -14,7 +14,6 @@ public class 공통조상_1248 {
 			int E = sc.nextInt();//간선의 수
 			int sv1 = sc.nextInt();//정점번호1
 			int sv2 = sc.nextInt();//정점번호2
-			ansCnt;//
 			int ansP;
 			tree = new int[V+1][3];//트리 생성
 			for(int i =1; i<=V; i++) {
