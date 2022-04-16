@@ -1,16 +1,27 @@
 package problem.APS심화;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class 하나로_1251 {
-	static class spot{
-		int x;
-		int y;
-		public spot(int x, int y) {
+	static class Edge implements Comparable<Edge>{
+		int from, to;
+		double w;
+		
+		
+		public Edge(int from, int to, double w) {
 			super();
-			this.x = x;
-			this.y = y;
+			this.from = from;
+			this.to = to;
+			this.w = w;
+		}
+
+
+		@Override
+		public int compareTo(Edge o) {
+			// TODO Auto-generated method stub
+			return Double.compare(this.w, o.w);
 		}
 		
 		
@@ -19,6 +30,7 @@ public class 하나로_1251 {
 	static double min, ans;
 	static int[] arr;
 	static double[][] edge;// 섬좌표 및 가장 가까운 거리값
+	static ArrayList<Edge> edgeList;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
@@ -27,6 +39,10 @@ public class 하나로_1251 {
 			N = sc.nextInt();//섬의수
 			edge = new double[N][3];
 			ans = 0;
+			arr = new int[N+1];
+			edgeList = new ArrayList<>();
+			//make set
+			for(int i = 0; i<N; i++) arr[i] = i;
 			
 			//edge info
 			for(int j =0; j<2; j++) {
@@ -37,22 +53,28 @@ public class 하나로_1251 {
 			
 			double E = sc.nextDouble();
 			
-			System.out.println(Arrays.deepToString(edge));
+			
 			
 			for(int i =0; i<N; i++) {
 				min = Double.MAX_VALUE;
 				for(int j =i; j<N; j++) {
 					double a = Math.pow(edge[i][0] - edge[j][0], 2);
 					double b = Math.pow(edge[i][1] - edge[j][1], 2);
-					if(min > a+b) {
-						min = a+b;
-						edge[i][2] = min;
-					}
+					edgeList.add(new Edge(i, j, a+b));
 				}
-				ans += min;
 			}
 			
-			System.out.println(ans);
+			edgeList.sort(null);
+			
+			int cnt = 0;
+			for(int i =0; i<edgeList.size(); i++) {
+				if(union(edgeList.get(i).from, edgeList.get(i).to)) {
+					ans += edgeList.get(i).w;
+					if(++cnt == N-1) break;
+				}
+			}
+			
+			System.out.println("#"+tc+" "+Math.round(ans*E));
 			
 		}//tc
 	}//main
@@ -62,13 +84,13 @@ public class 하나로_1251 {
 		return x;
 	}
 	
-	static void union(int x, int y) {
+	static boolean union(int x, int y) {
 		int nx = find(x);
 		int ny = find(y);
 		
-		if(nx == ny) return;
+		if(nx == ny) return false;
 		
 		arr[ny] = nx;
-		
+		return true;
 	}
 }//class
