@@ -6,19 +6,24 @@ public class 분해합_2231 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		String N = sc.next();
-		int ans = Integer.parseInt(N)/2;
+		int N = sc.nextInt();
+		int ans = 0;
 		
-		while(true) {
-		String tmp = Integer.toString(ans);
+	for(int i = 0; i<N; i++) {
+		int num = i;
+		int sum = num;
 		
-		int sum = Integer.parseInt(tmp);
-		
-		for(int i = 0; i<N.length(); i++) sum += (tmp.charAt(i) - '0');
-		if(sum == Integer.parseInt(N)) break;
-		
-		ans++;
+		while(num != 0) {
+			sum += num%10;
+			num /= 10;
 		}
-		System.out.println(ans);
+		
+		
+		if(sum == N) {
+			ans = i;
+			break;
+		}
+	}
+	System.out.println(ans);
 	}
 }
