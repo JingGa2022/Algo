@@ -3,36 +3,28 @@ package problem.백준.class2;
 import java.util.Scanner;
 
 public class 직각삼각형_4153 {
-	static class Tri{
-		int x;
-		int y;
-		int z;
-		
-		public Tri(int x, int y, int z) {
-			super();
-			this.x = x;
-			this.y = y;
-			this.z = z;
-		}
-		
-		public static void main(String[] args) {
-			Scanner sc = new Scanner(System.in);
-			
-			while(true) {
-			Tri tri = new Tri(sc.nextInt(), sc.nextInt(), sc.nextInt());
-			
-			if(tri.x == 0 && tri.y==0 && tri.z==0) break;
-			
-			if(tri.x*tri.x == (tri.y*tri.y)+(tri.z*tri.z)) 
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			int x = sc.nextInt();
+			int y = sc.nextInt();
+			int z = sc.nextInt();
+
+			if (x == 0 && y == 0 && z == 0)
+				break;
+
+			if (x * x == (y * y) + (z * z))
 				System.out.println("right");
-			else if((tri.x*tri.x) + (tri.y*tri.y) == (tri.z*tri.z)) 
+
+			else if ((x * x) + (y * y) == (z * z))
 				System.out.println("right");
-			else if((tri.x*tri.x) + (tri.z*tri.z) ==(tri.y*tri.y)) 
+
+			else if ((x * x) + (z * z) == (y * y))
 				System.out.println("right");
+
 			else
 				System.out.println("wrong");
-			
-			}
 		}
 	}
 }
