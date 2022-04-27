@@ -1,18 +1,18 @@
-package problem.¹éÁØ;
+package problem.ë°±ì¤€;
 
 import java.util.Scanner;
 
-public class ¸¶ÀÎÅ©·¡ÇÁÆ®_18111 {
+public class ë§ˆì¸í¬ë˜í”„íŠ¸_18111 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt(); //±æÀÌ
-		int M = sc.nextInt(); // ³ôÀÌ
-		int B = sc.nextInt();//°¡¹æ¼Ó ºí·°ÀÇ ¼ö
+		int N = sc.nextInt(); //ï¿½ï¿½ï¿½ï¿½
+		int M = sc.nextInt(); // ï¿½ï¿½ï¿½ï¿½
+		int B = sc.nextInt();//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		int[][] map = new int[N][N];
 		int ans = 0;
 		
-		int maxV = 0; //ÃÖ´ë ³ôÀÌ
-		int minV = 10000; // ÃÖ¼Ò ³ôÀÌ
+		int maxV = 0; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+		int minV = 10000; // ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int sum = 0;
 		for(int i =0; i<N; i++) {
 			for(int j =0; j<N; j++) {
