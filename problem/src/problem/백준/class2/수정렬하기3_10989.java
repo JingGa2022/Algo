@@ -7,29 +7,29 @@ import java.io.InputStreamReader;
 public class 수정렬하기3_10989 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int T = Integer.parseInt(br.readLine());
-		int[] num = new int[T];
-		int[] idx = new int[10001];
-		int[] rst = new int[T];
-		for(int tc = 0; tc<T; tc++) {
+		int N = Integer.parseInt(br.readLine());
+		int[] num = new int[N]; // 입력된 수의 배열
+		int[] idx = new int[10001]; //N에 가능한 수의 범위
+		int[] result = new int[N+1];
+		
+		for(int tc = 0; tc<N; tc++) {
 			num[tc] = Integer.parseInt(br.readLine());
-		}
-		//인덱스 설정
-		for(int i = 0; i<T; i++) {
-			idx[num[i]] ++;
-		}
-		//인덱스 조정
-		for(int i =0; i< 10000; i++) {
-				idx[i+1] += idx[i];
-		}
-		//정렬
-		for(int i = T-1; i>=0; i--) {
-				rst[idx[num[i]]-1] = num[i];
-				idx[num[i]] --;
+			idx[num[tc]] ++;
 		}
 		
-		for(int i = 0; i<T; i++) {
-			System.out.println(rst[i]);
+		//카운트 한것 정리
+		for(int i = 1; i<N; i++) {
+			idx[i] += idx[i-1];
 		}
-	}
+		
+		for(int tc = N-1; tc>=0; tc--) {
+			result[idx[num[tc]]] = num[tc];
+			idx[num[tc]] --;
+		}
+		
+		for(int i = 1; i<=N; i++) {
+			System.out.println(result[i]);
+		}
+	}//main
+	
 }
