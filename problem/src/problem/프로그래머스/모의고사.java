@@ -26,8 +26,8 @@ public class 모의고사 {
 			//최대값을 구해보자
 			int max = Math.max(Math.max(ans1, ans2),ans3);
 			if(max == ans1)   ans.add(ans1);
-			else if(max == ans2) ans.add(ans2);
-			else if(max == ans3) ans.add(ans3);
+			if(max == ans2) ans.add(ans2);
+			if(max == ans3) ans.add(ans3);
 		}
 		
 		answer = new int[ans.size()];
