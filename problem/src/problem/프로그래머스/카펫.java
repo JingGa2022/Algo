@@ -7,6 +7,7 @@ public class 카펫 {
 		int brown = 10;
 		int yellow = 2;
 		
+		
 		int[] arr = solution(brown,yellow);
 		
 		System.out.println(Arrays.toString(arr));
