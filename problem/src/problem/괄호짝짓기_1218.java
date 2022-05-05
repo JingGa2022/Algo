@@ -1,22 +1,21 @@
 package problem;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class °ıÈ£Â¦Áş±â_1218 {
+public class ê´„í˜¸ì§ì§“ê¸°_1218 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		//10¹ø µ¹±â
+		//10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		for(int tc = 1; tc <= 10; tc++) {
-			//ÄÉÀÌ½ºÀÇ ±æÀÌ
+			//ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int tlen = sc.nextInt();
-			//¹°ÀÚ¿­ ¹Ú½º
+			//ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ú½ï¿½
 			char[] box = sc.next().toCharArray();
 			Stack<Character> st = new Stack<>();
-			//À¯È¿¼º°ª
+			//ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½
 			int ok = 1;
-			//½ºÅØ¿¡ ¹®ÀÚ ³Ö±â
+			//ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
 			for(int i = 0; i<tlen; i++) 
 				if(box[i] == '(' || box[i] == '[' || box[i] == '{' || box[i] == '<')
 					st.push(box[i]);
@@ -49,7 +48,7 @@ public class °ıÈ£Â¦Áş±â_1218 {
 						break;
 					}
 			
-			//Ãâ·Â
+			//ï¿½ï¿½ï¿½
 			System.out.printf("#%d %d\n",tc, ok);
 		}
 	}

@@ -2,14 +2,14 @@ package problem;
 
 import java.util.Scanner;
 
-public class È¸¹®1_1215 {
+public class íšŒë¬¸1_1215 {
 	static int len;
 	static char[][] pal;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		for (int tc = 1; tc <= 10; tc++) {
-			len = sc.nextInt();// Ã£¾Æ¾ßÇÏ´Â ±æÀÌ
+			len = sc.nextInt();// Ã£ï¿½Æ¾ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 			pal = new char[8][8];
 			int ans = 0;
 			int far = 0;

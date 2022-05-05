@@ -3,7 +3,7 @@ package problem;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ¸¶ÀÌÂé {
+public class ë§ˆì´ì®¸ {
 	static class Person{
 		int num;
 		int cnt;
@@ -14,12 +14,12 @@ public class ¸¶ÀÌÂé {
 		}
 	}
 	public static void main(String[] args) {
-		//»ç¶÷ÀÌ ÁÙÀ»¼±´Ù
-		//ÇØ´ç»ç¶÷ÀÌ °³¼ö¸¸Å­ ¸¶ÀÌÂé¸¦ °¡Á®°¡¸é
-		//´Ù½Ã ÁÙÀ» ¼­¼­ °³¼öÁõ°¡, »õ·Î¿î »ç¶÷ÀÌ ¿Í¼­ ÁÙÀ»¼±´Ù.
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½é¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		
 		int N = 20;
-		int pNum = 1; //»ç¶÷ÀÇ ¹øÈ£
+		int pNum = 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		
 		Queue<Person> queue = new LinkedList<>();
 		
@@ -27,14 +27,14 @@ public class ¸¶ÀÌÂé {
 		while(N>0) {
 			if(!queue.isEmpty()) {
 				Person p = queue.poll();
-				N -= p.cnt; //ÀÌ¹øÂ÷·Ê¿¡ p¶ó´Â »ç¶÷¿¡°Ô ¸¶ÀÌÂé¸¦ ÁØ´Ù.
+				N -= p.cnt; //ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ pï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½é¸¦ ï¿½Ø´ï¿½.
 				if(N <= 0) {
-					System.out.println(p.num + "¹ø »ç¶÷ÀÌ ¸¶Áö¸· ¸¶ÀÌÂé¸¦ °Ù");
+					System.out.println(p.num + "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½é¸¦ ï¿½ï¿½");
 				}else {
-					System.out.println(p.num+"¹ø »ç¶÷ÀÌ "+p.cnt+"¸¸Å­ °¡Á®°¨");
-					System.out.println("³²Àº ¸¶ÀÌÂé´Â"+N);
+					System.out.println(p.num+"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ "+p.cnt+"ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+N);
 					p.cnt++;
-					queue.offer(p);//°¡¼­ ´Ù½Ã ÁÙ¼­±â
+					queue.offer(p);//ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½
 					queue.offer(new Person(pNum++));
 				}
 				

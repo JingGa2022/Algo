@@ -3,7 +3,7 @@ package problem;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ¿øÀçÀÇ¸Ş¸ğ¸®º¹±¸_1289 {
+public class ì›ì¬ì˜ë©”ëª¨ë¦¬ë³µêµ¬_1289 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -13,12 +13,12 @@ public class ¿øÀçÀÇ¸Ş¸ğ¸®º¹±¸_1289 {
 			int ans = 0;
 			
 			String str = sc.next();
-			//¿ø·¡ÀÇ ¸Ş¸ğ¸®
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¸ï¿½
 			int[]memory = new int[str.length()];
-			//0000À¸·Î Ã¤¿öÁø ¸Ş¸ğ¸®¿¡¼­ ¾Èµé¾î°¥ ¸Ş¸ğ¸®
+			//0000ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¸ğ¸®¿ï¿½ï¿½ï¿½ ï¿½Èµï¿½î°¥ ï¿½Ş¸ï¿½
 			int[] tmp = new int[str.length()];
 			
-			//memory ÀÏ´Ü str·Î µ¤¾î¾º¿ì±â
+			//memory ï¿½Ï´ï¿½ strï¿½ï¿½ ï¿½ï¿½ï¿½î¾ºï¿½ï¿½ï¿½
 			for(int i =0; i<str.length(); i++) {
 				if(str.charAt(i) == '1')
 					memory[i] = 1;

@@ -2,16 +2,16 @@ package problem;
 
 import java.util.Scanner;
 
-public class È¸¹®2_1216 {
+public class íšŒë¬¸2_1216 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		char[][] box = new char[100][100];
-		// Å×½ºÆ®ÄÉÀÌ½º¸¸Å­ µ¹±â
+		// ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½
 		for (int tc = 1; tc <= 10; tc++) {
 			int t = sc.nextInt();
-			// 100Ä­¿¡ ¼ýÀÚ Áý¾î³Ö±â
+			// 100Ä­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 			for (int i = 0; i < 100; i++) {
-				// ¼ýÀÚ¿­ ³Ö¾îÁÖ±â
+				// ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
 				box[i] = sc.next().toCharArray();
 			}
 			int maxL = 0;
@@ -26,7 +26,7 @@ public class È¸¹®2_1216 {
 		}
 	}
 
-	// È¸¹®ÀÇ ÃÖ°í±æÀÌ¸¦ È®ÀÎÇÏ´Â ¸Þ¼­µå
+	// È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ï¿½ï¿½Ì¸ï¿½ È®ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	public static int maxPal(char[][] box, int y, int x) {
 		int max = 0;
 		int p1 = x;
