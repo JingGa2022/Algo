@@ -5,7 +5,9 @@ import java.util.*;
 public class 스택_10828 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+		StringBuilder sb = new StringBuilder();
+
+
 		int N = sc.nextInt();
 		Stack<Integer> stack = new Stack<>();
 		
@@ -16,20 +18,21 @@ public class 스택_10828 {
 				stack.add(sc.nextInt());
 			}
 			else if(order.equals("pop")) {
-				if(stack.isEmpty()) System.out.println(-1);
-				else System.out.println(stack.pop());
+				if(stack.isEmpty()) sb.append(-1).append("\n");
+				else sb.append(stack.pop()).append("\n");
 			}
 			else if(order.equals("size")) {
-				System.out.println(stack.size());
+				sb.append(stack.size()).append("\n");
 			}
 			else if(order.equals("empty")) {
-				if(stack.isEmpty()) System.out.println(1);
-				else System.out.println(0);
+				if(stack.isEmpty()) sb.append(1).append("\n");
+				else sb.append(0).append("\n");
 			}
 			else {
-				if(stack.isEmpty()) System.out.println(-1);
-				else System.out.println(stack.peek());
+				if(stack.isEmpty()) sb.append(-1).append("\n");
+				else sb.append(stack.peek()).append("\n");
 			}
 		}//for
+		System.out.println(sb);
 	}//main
 }
