@@ -13,7 +13,7 @@ public class 랜선자르기_1654 {
 		t = 0;
 		b = 0;
 
-		arr = new int[N];
+		arr = new int[K];
 
 		for (int i = 0; i < K; i++) {
 			arr[i] = sc.nextInt();
@@ -21,9 +21,9 @@ public class 랜선자르기_1654 {
 				t = arr[i];
 		}
 
-		while (b < t) {
+		while (b <= t) {
 			int mid = (t + b) / 2;
-			if (isMax(mid) > N) {
+			if (isMax(mid) >= N) {
 				b = mid+1;
 			}else
 				t = mid;
