@@ -3,7 +3,8 @@ package problem.백준.class2;
 import java.util.Scanner;
 
 public class 랜선자르기_1654 {
-	static int K, N, t, b, max;
+	static int K, N;
+	static long t, b;
 	static int[] arr;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -21,25 +22,23 @@ public class 랜선자르기_1654 {
 				t = arr[i];
 		}
 
-		while (b <= t) {
-			int mid = (t + b) / 2;
-			if (isMax(mid) >= N) {
-				b = mid+1;
-			}else
+		t++;
+		
+		while (b < t) {
+			long mid = (t + b) / 2;
+			
+			int sum = 0;
+			
+			for (int i = 0; i < K; i++) {
+				sum += arr[i] / mid;
+			}
+			if(sum < N ) {
 				t = mid;
+			}else
+				b = mid+1;
 		}
 		
-		System.out.println(max);
+		System.out.println(b-1);
 	}// main
 
-	static Integer isMax(int m) {
-		int sum = 0;
-		for (int i = 0; i < K; i++) {
-			sum += arr[i] / m;
-		}
-		if(sum==N && max < m) {
-			max = m;
-		}
-		return sum;
-	}
 }
