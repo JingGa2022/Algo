@@ -1,25 +1,25 @@
-package problem.¹éÁØ;
+package problem.ë°±ì¤€;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ½ºÀ§Ä¡ÄÑ°í²ô±â_1244 {
+public class ìŠ¤ìœ„ì¹˜ì¼œê³ ë„ê¸°_1244 {
 	static int[] status;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();// ½ºÀ§Ä¡ °³¼ö
-		status = new int[T + 1];// ½ºÀ§Ä¡ »óÅÂ
+		int T = sc.nextInt();// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+		status = new int[T + 1];// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 		for (int i = 1; i <= T; i++)
 			status[i] = sc.nextInt();
-		int num = sc.nextInt();// ÇĞ»ı¼ö
-		int[][] stu = new int[num][2];// ÇĞ»ı ¼ºº°°ú ´©¸£´Â ½ºÀ§Ä¡
+		int num = sc.nextInt();// ï¿½Ğ»ï¿½ï¿½ï¿½
+		int[][] stu = new int[num][2];// ï¿½Ğ»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 		for (int i = 0; i < num; i++) {
 			for (int j = 0; j < 2; j++)
 				stu[i][j] = sc.nextInt();
 		}
 		for (int i = 0; i < num; i++) {
-			// ¼ºº°À» ³ª´©°í ±× »óÈ²¿¡ ¸Â°Ô ½ºÀ§Ä¡ÀÇ º¯È­¸¦°í·ÁÇØº¸ÀÚ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½
 			switch (stu[i][0]) {
 			case 1:
 				int tmp = stu[i][1];
@@ -47,14 +47,14 @@ public class ½ºÀ§Ä¡ÄÑ°í²ô±â_1244 {
 					}
 				}
 				break;
-			}// ¼ºº°¿¡µû¶ó
-		} // for¹®
+			}// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		} // forï¿½ï¿½
 		for (int i = 1; i <= T; i++) {
 			System.out.print(status[i]);
 		}
 	}// main
 
-	// Àü¿øÀ» ±ôºı±ôºı
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public static int click(int idx) {
 		return status[idx] = 1 - status[idx];
 	}
