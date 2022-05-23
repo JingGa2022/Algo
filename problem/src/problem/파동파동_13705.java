@@ -2,7 +2,7 @@ package problem;
 
 import java.util.Scanner;
 
-public class ÆÄµ¿ÆÄµ¿_13705 {
+public class íŒŒë™íŒŒë™_13705 {
 	static int[][] box;
 
 	public static void main(String[] args) {

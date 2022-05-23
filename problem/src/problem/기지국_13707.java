@@ -2,9 +2,9 @@ package problem;
 
 import java.util.Scanner;
 
-public class ±âÁö±¹_13707 {
+public class ê¸°ì§€êµ­_13707 {
 	static char[][] map;
-	static int[] dr = {-1,0,1,0};//»óÁÂÇÏ¿ì
+	static int[] dr = {-1,0,1,0};//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½
 	static int[] dc = {0,-1,0,1};
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

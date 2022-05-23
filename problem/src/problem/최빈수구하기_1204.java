@@ -2,31 +2,31 @@ package problem;
 
 import java.util.Scanner;
 
-public class ÃÖºó¼ö±¸ÇÏ±â_1204 {
+public class ìµœë¹ˆìˆ˜êµ¬í•˜ê¸°_1204 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		// Å×½ºÆ®ÄÉÀÌ½ºÀÔ·Â ¼ýÀÚ ³ÖÀ» ¹è¿­
+		// ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½Ì½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
 		int T = sc.nextInt();
 		int[] score = new int[1000];
 
 		for (int k = 1; k <= T; k++) {
-			// Å×½ºÆ® ÄÉÀÌ½º ÀÔ·Â
+			// ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ô·ï¿½
 			int TC = sc.nextInt();
-			// Á¡¼ö ºóµµ¹è¿­
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½óµµ¹è¿­
 			int[] fre_score = new int[101];
-			// nBox¿¡ Á¡¼ö ³Ö±â
+			// nBoxï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
 			for (int i = 0; i < 1000; i++)
 				score[i] = sc.nextInt();
-			// 0~100±îÁö °¢ Á¡¼ö°¡ ¸î°³ÀÖ´ÂÁö ¼¼±â
+			// 0~100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î°³ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			for (int i = 0; i <= 100; i++) {
-				// Á¡¼öÀÇ ºóµµ ¼¼±â
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				for (int j = 0; j < 1000; j++) {
 					frequency(score, i, j, fre_score);
 				}
 			}
-			// ÃÖ´ë°ªÀÇ ÀÎµ¦½º
+			// ï¿½Ö´ë°ªï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 			int maxV = 0;
-			// Á¡¼ö Áß ÃÖ´ë°ª ±¸ÇÏ±â
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ë°ª ï¿½ï¿½ï¿½Ï±ï¿½
 			for (int i = 0; i <= 100; i++) {
 				if (max(fre_score[i], fre_score[maxV]))
 					maxV = i;
@@ -36,13 +36,13 @@ public class ÃÖºó¼ö±¸ÇÏ±â_1204 {
 
 	}
 
-	// ºóµµ±¸ÇÏ´Â ¸Þ¼­µå Á¤ÀÇ
+	// ï¿½óµµ±ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static void frequency(int[] score, int i, int j, int[] fre_score) {
 		if (score[j] == i)
 			fre_score[i]++;
 	}
 
-	// ÃÖ´ë°ª ¸Þ¼­µå Á¤ÀÇ
+	// ï¿½Ö´ë°ª ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static boolean max(int a, int b) {
 		if (a >= b)
 			return true;
