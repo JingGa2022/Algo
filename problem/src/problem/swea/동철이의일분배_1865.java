@@ -4,49 +4,49 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class 동철이의일분배_1865 {
+	static int N;
+	static double max;
+	static double[][] arr;
+	static int[] check;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		int T = sc.nextInt();
 
 		for (int tc = 1; tc <= T; tc++) {
-			int N = sc.nextInt();
+			N = sc.nextInt();
 
-			boolean[] check = new boolean[N];
-			boolean[] checkR = new boolean[N];
-			float[][] arr = new float[N][N];
-			int a = 0;
-			int b = 0;
-
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					arr[i][j] = sc.nextFloat();
-				
+			check = new int[N];
+			arr = new double[N][N];
+			max = 0;
+			
+			for(int i = 0; i<N; i ++) {
+				for(int j = 0; j<N; j++) {
+					arr[i][j] = sc.nextDouble()/100;
 				}
 			}
-			check[a] = true;
-			checkR[b] = true;
-
-			float ans = 1;
-	
-				for (int i = 0; i < N; i++) {
-					for (int j = 0; j < N; j++) {
-						if (!check[j] && !checkR[i]) {
-							a = i;
-							b = j;
-						}
-					}
-				checkR[a] = true;
-				check[b] = true;
-				ans *= (arr[a][b] / 100);
-			}
 			
+			tree(0,1);
 			
-			
-			ans *= 100;
-			System.out.println("#"+tc+" "+String.format("%.6f", ans));
+			System.out.println("#"+tc+" "+String.format("%.6f", max * 100));
 
 		}
 
+	}//main
+	
+	static private void tree (int a, double gop) {
+			if(max >= gop) return;
+		
+			if(a == N) {
+				if(max<gop) max = gop;
+				return;
+			}
+			
+			for(int i = 0; i<N; i++) {
+				if(check[i]==1) continue;
+				check[i] = 1;
+				tree(a+1, gop * arr[a][i]);
+				check[i] = 0;
+			}
 	}
 }
