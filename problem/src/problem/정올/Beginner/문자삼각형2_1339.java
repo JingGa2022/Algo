@@ -8,6 +8,10 @@ public class 문자삼각형2_1339 {
 		
 		int n = sc.nextInt();
 		
+		if(n <1 || n > 100 || n % 2 == 0) {
+			System.out.println("INPUT ERROR");
+		}
+		else {
 		char[][] arr = new char[n][n];
 		
 		char alpha = 'A';
@@ -26,6 +30,7 @@ public class 문자삼각형2_1339 {
 				else if(j != n-1) System.out.printf("%c ", arr[i][j]);
 			}
 			System.out.println();
+		}
 		}
 	}
 }
