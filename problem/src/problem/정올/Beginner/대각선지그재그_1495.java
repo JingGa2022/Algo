@@ -16,7 +16,7 @@ public class 대각선지그재그_1495 {
 
 			if (i % 2 != 0) {
 				for (int j = 0; j <= i; j++) {
-					arr[i - cnt][cnt] = ++idx;1
+					arr[i - cnt][cnt] = ++idx;
 					cnt++;
 				}
 			} else {
