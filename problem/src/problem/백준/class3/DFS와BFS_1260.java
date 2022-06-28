@@ -26,7 +26,7 @@ public class DFS와BFS_1260 {
 		//공간 만들기
 		space = new int[N+1][N+1];
 		isVisited = new boolean[N+1];
-		for(int i = 0; i<N; i++) {
+		for(int i = 0; i<M; i++) {
 				st = new StringTokenizer(br.readLine()); 
 				int x = Integer.parseInt(st.nextToken());
 				int y = Integer.parseInt(st.nextToken());
@@ -47,7 +47,7 @@ public class DFS와BFS_1260 {
 			
 		sb.append(startNode).append(" ");
 		
-		if(startNode == space.length - 1) {
+		if(startNode == space.length) {
 			return;
 		}
 		
