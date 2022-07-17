@@ -1,4 +1,4 @@
-package problem.백준;
+package problem.백준.class3;
 
 import java.util.Scanner;
 
