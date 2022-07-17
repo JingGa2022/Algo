@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class 토마토_7569 {
-	static int m, n, h;
+	static int m, n, h, ans;
 	static int[][][] arr;
 	static int[] dx = {-1, 0, 1, 0, 0, 0};
 	static int[] dy = {0, 1, 0, -1, 0, 0};
@@ -29,6 +29,7 @@ public class 토마토_7569 {
 		m = sc.nextInt();
 		n = sc.nextInt();
 		h = sc.nextInt();
+		ans = 0;
 
 		arr = new int[n][m][h];
 
