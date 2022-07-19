@@ -24,7 +24,7 @@ public class 트리의부모찾기_11725 {
 		}
 		
 			dfs(1,0);
-for(int i = 2; i<=n; i++)
+			for(int i = 2; i<=n; i++)
 				System.out.println(sel[i]);
 	}
 	private static void dfs(int start, int parent) {
