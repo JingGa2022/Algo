@@ -8,7 +8,7 @@ public class 이Xn타일링_11726 {
 		
 		int n = sc.nextInt();
 		
-		int[] dp = new int[n+1];
+		int[] dp = new int[1001];
 		
 		dp[1] = 1;
 		dp[2] = 2;
