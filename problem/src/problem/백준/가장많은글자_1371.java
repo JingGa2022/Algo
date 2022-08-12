@@ -13,7 +13,7 @@ public class 가장많은글자_1371 {
 		while(sc.hasNextLine()) {
 			String s = sc.nextLine();
 			for(int i =0 ; i<s.length(); i++) {
-				if(s.charAt(i)>'a' && s.charAt(i) < 'z') arr[s.charAt(i) - 'a']++;
+				if(s.charAt(i)>='a' && s.charAt(i) <= 'z') arr[s.charAt(i) - 'a']++;
 			}
 
 		}
