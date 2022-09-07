@@ -45,6 +45,7 @@ public class 뱀과사다리게임_16928 {
 					q.add(x);
 					count[x] = count[tmp] + 1;
 				}else {
+					if(visit[arr[x]]) continue;
 					q.add(arr[x]);
 					visit[arr[x]] = true;
 					count[arr[x]]= count[tmp] +1;
