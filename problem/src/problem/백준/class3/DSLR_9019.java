@@ -1,13 +1,15 @@
 package problem.백준.class3;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class DSLR_9019 {
 	static int A,B;
-	static boolean[] visit = new boolean[10001];
-	static int ans;
+	static boolean[] visit ;
+	static String[] ans;
+	static Queue<Integer> q;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -16,55 +18,47 @@ public class DSLR_9019 {
 		for(int tc = 0 ; tc<T; tc++) {
 			A = sc.nextInt();
 			B = sc.nextInt();
-			ans = 0;
+			visit = new boolean[10001];
+			ans = new String[10001];
 			
-			dfs();
-			System.out.println(ans);
-		}
-	}
-	private static void dfs() {
-		// TODO Auto-generated method stub
-		Queue<Integer> q = new LinkedList<>();
-		
-		q.add(A);
-		visit[A] = true;
-		
-		while(!q.isEmpty()) {
-			int tmp = q.poll();
-			for(int i = 1; i<=4; i++) {
-						
-				order(i, "");
-				if(visit[A]) continue;
+			q = new LinkedList<>();
+			visit[A] = true;
+			q.add(A);
+			Arrays.fill(ans, "");
+			while(!q.isEmpty() && !visit[B]) {
+				int now = q.poll();
+				int D = now*2 % 10000;
+				int S = (now == 0) ? 9999 : now-1;
+				int L = (now % 1000)*10 + now/1000;
+				int R = (now % 10) * 1000 + now/10;
 				
-				visit[A] = true;
-				q.add(A);
+				if(!visit[D]) {
+					
+				visit[D] = true;
+				ans[D] = ans[now] + "D";
+				q.add(D);
+				}
+				
+				if(!visit[S]) {
+				visit[S] = true;
+				ans[S] = ans[now] + "S";
+				q.add(S);
+				}
+
+				if(!visit[L]) {
+				visit[L] = true;
+				ans[L] = ans[now] + "L";
+				q.add(L);
+				}
+
+				if(!visit[R]) {
+				visit[R] = true;
+				ans[R] = ans[now] + "R";
+				q.add(R);
+				}
 			}
-			ans += 1;
-		}
-	}
-	
-	private static void order(int num, String sb) {
-		switch(num) {
-		case 1:
-			if(A*2 > 9999) A %= 10000;
-			else A *= 2;
-			sb += "D";
-			break;
-		case 2:
-			if(A-1 == 0) A = 9999;
-			else A -= 1;
-			sb += "S";
-			break;
-		case 3:
-			String s = Integer.toString(A).substring(1, Integer.toString(A).length()) + Integer.toString(A).substring(0,1);
-			A = Integer.parseInt(s);
-			sb += "L";
-			break;
-		case 4:
-			s = Integer.toString(A).substring(Integer.toString(A).length()-1,Integer.toString(A).length()) + Integer.toString(A).substring(0, Integer.toString(A).length()-1);
-			A = Integer.parseInt(s);
-			sb += "R";
-			break;
+			
+			System.out.println(ans[B]);
 		}
 	}
 }
