@@ -16,7 +16,7 @@ public class 로봇청소기_14503 {
 	static int n, m, ans;
 	static int[][] room;
 	static boolean[][] visit;
-	static int[] dr = { 0, 1, 0, -1 };
+	static int[] dr = { 0, -1, 0, 1 };
 	static int[] dc = { -1, 0, 1, 0 };
 	static Spot start;
 
@@ -48,23 +48,35 @@ public class 로봇청소기_14503 {
 			ans++;
 			visit[spot.x][spot.y] = true;
 		}
-		System.out.printf("지금어디? %d %d\n", spot.x, spot.y);
+		
+		//2-3 2-4 체크//
 		int cnt = 0;
-
-		int newX = spot.x + dr[(direction+1) % 4];
-		int newY = spot.y + dc[(direction+1) %4];
-
-		if (newX < 1 || newY < 1 || newX > n - 2 || newY > m - 2 || room[newX][newY] == 1) {
-			cnt++;
-			continue;
+		
+		for (int i = 0; i < 4; i++) {
+			int tmpX = spot.x + dr[i];
+			int tmpY = spot.y + dc[i];
+			if(room[tmpX][tmpY] == 1 || visit[tmpX][tmpY]) {
+				cnt++;
+			}
+		}
+		
+		int newX = spot.x + dr[(direction + 3) % 4];
+		int newY = spot.y + dc[(direction + 3) % 4];
+		if(cnt == 4 && room[newX][newY]== 0) {
+			dfs(new Spot(newX, newY), direction);
+			return;
+		}else if(cnt==4 && room[newX][newY]== 1) {
+			return;
+		}
+//////////////////////////////////////////////////////////
+		// 2-1 2-2 체크 //
+		newX = spot.x + dr[direction];
+		newY = spot.y + dc[direction];
+		if (room[newX][newY] == 0 && !visit[newX][newY]) {
+			dfs(new Spot(newX, newY), (direction + 3) % 4);
+		}else {
+			dfs(spot, (direction + 3) % 4);	
 		}
 
-		if (!visit[newX][newY]) {
-			dfs(new Spot(newX, newY), i);
-		}
-
-		if (cnt == 4) {
-
-		}
 	}
 }
