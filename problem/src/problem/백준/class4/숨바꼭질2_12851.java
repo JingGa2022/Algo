@@ -23,6 +23,11 @@ public class 숨바꼭질2_12851 {
 
 		n = sc.nextInt();
 		k = sc.nextInt();
+		
+		if(n >= k) {
+			System.out.println((n-k) +"\n1");
+			return;
+		}
 
 		bfs();
 
