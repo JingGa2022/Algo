@@ -21,14 +21,13 @@ public class 동전_9084 {
 			
 			int m = sc.nextInt();
 			int[] dp = new int[m+1];
+			dp[0] = 1;
 			
-			for(int i = 0; i<n; i++) dp[arr[i]] = 1;
 			
-			for(int i = 1; i<=m; i++) {
-				for(int j = 0; j<n; j++) {
-					if(i-arr[j] < 0) continue;
-					dp[i] += dp[i-arr[j]] + dp[arr[j]];
-				}
+			for(int coin :arr) {
+					for(int j = coin; j<=m; j++) {
+						dp[j] += dp[j - coin];
+					}
 			}
 			System.out.println(dp[m]);
 		}
