@@ -66,7 +66,7 @@ public class 로봇시뮬레이션_2174 {
 
 	static void command(int num, char cmd, int cycle) {
 		Robot tmp = robot.get(num);
-		if(robot.get(num).dir == -1) reutrn;
+		if(robot.get(num).dir == -1) return;
 		
 		switch (cmd) {
 		case 'L':
