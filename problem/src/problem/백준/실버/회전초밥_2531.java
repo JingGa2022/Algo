@@ -16,8 +16,8 @@ public class 회전초밥_2531 {
 		k = sc.nextInt(); // 연속 접시수
 		c = sc.nextInt(); // 쿠폰 번호
 
-		visit = new int[d + 1];
 		arr = new int[n];
+		visit = new int[d + 1];
 
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
@@ -42,15 +42,17 @@ public class 회전초밥_2531 {
 				else
 					max = total;
 			}
+			
+			int end = (i + k - 1) % n;
 			// 투포인트로 왼쪽 부분 제거
 			visit[arr[i - 1]]--;
 			if (visit[arr[i - 1]] == 0)
 				total--;
 
 			// 오른쪽 포인트가 n넘어갈 경우 커버
-			if (visit[arr[(i + k - 1) % n]] == 0)
+			if (visit[arr[end]] == 0)
 				total++;
-			visit[arr[(i + k - 1) % n]]++;
+			visit[arr[end]]++;
 		}
 
 		return max;
