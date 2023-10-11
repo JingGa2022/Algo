@@ -39,8 +39,8 @@ public class 로봇시뮬레이션_2174 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		a = sc.nextInt();
 		b = sc.nextInt();
+		a = sc.nextInt();
 		n = sc.nextInt();
 		m = sc.nextInt();
 
@@ -49,7 +49,7 @@ public class 로봇시뮬레이션_2174 {
 		nesw.put('S', 2);
 		nesw.put('W', 3);
 
-		map = new int[b][a];
+		map = new int[b+1][a+1];
 		for (int i = 0; i < b; i++) {
 			for (int j = 0; j < a; j++)
 				map[i][j] = -1;
@@ -80,7 +80,7 @@ public class 로봇시뮬레이션_2174 {
 			for (int i = 0; i < cycle; i++) {
 				int nx = tmp.x + dr[d];
 				int ny = tmp.y + dr[d];
-				if (nx < 0 || ny < 0 || nx >= b || ny >= a) {
+				if (nx <= 0 || ny <= 0 || nx > b || ny > a) {
 					System.out.println("Robot " + num + " crashes into the wall");
 					robot.add(num, new Robot(0, 0, -1));
 					break;
@@ -94,7 +94,6 @@ public class 로봇시뮬레이션_2174 {
 					robot.add(num, new Robot(nx, ny, tmp.dir));
 				}
 				map[tmp.x][tmp.y] = -1;
-
 			}
 			break;
 		}
