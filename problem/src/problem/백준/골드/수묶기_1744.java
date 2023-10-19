@@ -2,7 +2,7 @@ package problem.백준.골드;
 
 import java.util.*;
 
-public class 수묶기 {
+public class 수묶기_1744 {
 	/* 1. 수를 정렬한다.
 	 * 2. 음수는 음수끼리 작은순으로 곱하고 양수는 양수끼리 큰수로 곱할때 가장 커진다.
 	 * 3. 1과 0의 경우는 무조건 더해야 한다.
@@ -29,8 +29,6 @@ public class 수묶기 {
 				ans += arr[mIdx++];
 			}
 		}
-		
-		System.out.println(ans);
 		
 		int pIdx = n-1;
 		while(pIdx >= mIdx && arr[pIdx] > 0) {
