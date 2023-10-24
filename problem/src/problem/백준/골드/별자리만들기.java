@@ -47,7 +47,7 @@ public class 별자리만들기 {
 		
 		for(int i = 0; i<n; i++) {
 			for(int j = i+1; j<n; j++) {
-				double tmp = Math.pow(starList.get(i).x - starList.get(j).x, 2) - Math.pow(starList.get(i).y - starList.get(j).y, 2);
+				double tmp = Math.pow(starList.get(i).x - starList.get(j).x, 2) + Math.pow(starList.get(i).y - starList.get(j).y, 2);
 				double dist = Math.sqrt(tmp);
 				q.add(new Edge(i, j, dist));
 						
@@ -56,7 +56,7 @@ public class 별자리만들기 {
 		
 		parent = new int[starList.size()];
 		double ans = kruskal();
-		System.out.println(ans);
+		System.out.printf("%.2f", ans);
 	}
 	static double kruskal() {
 		for(int i = 0; i<starList.size(); i++) parent[i] = i;
